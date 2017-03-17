@@ -2,18 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>微信读书</title>
     <link rel="icon" href="resources/img/i-form-email.png"/>
-    <link href="libs/framework7/dist/css/framework7.ios.min.css"/>
-    <link href="libs/framework7/dist/css/framework7.ios.colors.min.css"/>
-    <link href="libs/font-awesome/css/font-awesome.min.css"/>
-    <link href="libs/icono/dist/icono.min.css"/>
+    <link rel="stylesheet" href="libs/framework7/dist/css/framework7.ios.min.css"/>
+    <link rel="stylesheet" href="libs/framework7/dist/css/framework7.ios.colors.min.css"/>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="libs/icono/dist/icono.min.css"/>
 </head>
 <body>
-这是一个读书应用
+<div class="statusbar-overlay"></div>
+<!-- Views -->
+<div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                <div class="center sliding">Awesome App</div>
+            </div>
+        </div>
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+            <!-- Page, "data-page" contains page name -->
+            <div data-page="index" class="page">
+                <!-- Scrollable page content -->
+                <div class="page-content">
+
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+            <div class="toolbar-inner">
+                <!-- Toolbar links -->
+                <a href="#" class="link">Link 1</a>
+                <a href="#" class="link">Link 2</a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="libs/framework7/dist/js/framework7.min.js"></script>
+<script src="resources/js/wechat-core.js"></script>
 </html>
