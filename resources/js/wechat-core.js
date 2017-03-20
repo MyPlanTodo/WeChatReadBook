@@ -18,8 +18,6 @@
     });
 
     /*
-     * -->判断是否为QQ浏览器如果“是”则取消动画效果	ps:QQ浏览器简直可以称为国产最水浏览器，移动界的IE6
-     * -->判断是否为QQ浏览器如果“是”则响应延时时间为0ms，如果为“否”，则设置300ms等待时间，防止出现切换页面动画效果卡顿(base64转码图片时的效能问题)
      * -->300ms 页面切换动画默认时间
      */
     var _timeOut = 300;
@@ -44,7 +42,15 @@
         autoplay: 6000
     });
 
-    $$(document).on("click", ".card", function() {
+    $$(document).on("click", ".page-content .card", function() {
+        var card = $$(this);
+
+        //测试数据
+        var _temp={"book_id":123456,"book_content":"sssadadadadd","book_img":2000,"book_num":2256};
+        window.localStorage.setItem($$(this).find("input").val(),JSON.stringify(_temp))
+
+
+
         var modal = WeChat.modal({
             afterText:  '<div class="card card-header-pic wx_popup_card popup_header_pic">'
             +'<div style="background-image:url(resources/img/book/book_3.jpeg)" valign="bottom" class="card-header color-white no-border"></div>'
@@ -56,20 +62,26 @@
         +'</div>',
             buttons: [
                 {
-                    text: '👍'
+                    text: '👍',
+                    bold: true,
+                    onClick: function () {
+                        var data =JSON.parse(window.localStorage.getItem(card.find("input").val()));
+                        var _html = "<div>已获票数："+data.book_num+"票</div>";
+                        card.find(".card-footer").html(_html)
+                    }
                 },
                 {
                     text: '查看更多',
                     bold: true,
                     onClick: function () {
-                        WeChat.alert('Thanks! I know you like it!')
+
                     }
                 },
                 {
                     text: '❌',
                     bold: true,
                     onClick: function () {
-                        WeChat.alert('Thanks! I know you like it!')
+
                     }
                 }
             ]
