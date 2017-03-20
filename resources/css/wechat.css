@@ -1,0 +1,101 @@
+.swiper-slide {
+    background: #fff;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+
+.swiper-slide span {
+    text-align: center;
+    display: block;
+    font-size: 12px;
+}
+
+.swiper-container {
+    height: 120px;
+}
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    margin: 5px;
+    font-size: 8px;
+}
+.card-title-text{
+    margin: 0px;
+    padding:5px;
+    min-height: 10px;
+    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.card-footer-text{
+    margin: 0px;
+    padding:5px;
+    min-height: 10px;
+}
+.card-header-pic .card-header {
+    height: 40vw;
+    background-size: cover;
+    background-position: center;
+}
+
+.popup_header_pic .card-header{
+    height: 60vw;
+}
+
+.wx_popup {
+    position: absolute;
+    box-shadow: 0 0 10px black;
+    border-radius: 7px;
+    text-align: center;
+    margin-top: 0;
+    top: 15%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    -webkit-transform: translate3d(0, 0, 0) scale(1.185);
+    transform: translate3d(0, 0, 0) scale(1.185);
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    -o-transition-property: -o-transform, opacity;
+    transition-property: transform, opacity;
+}
+
+.wx_popup.modal-in {
+    opacity: 1;
+    -webkit-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+.wx_popup.modal-out {
+    opacity: 0;
+    z-index: 10999;
+    -webkit-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transform: translate3d(0, 0, 0) scale(0.815);
+    transform: translate3d(0, 0, 0) scale(0.815);
+}
+.wx_popup_content{
+    border: 0px;
+    padding:0px;
+    margin:0px;
+}
+.wx_popup_card{
+    border: 0px;
+    padding:-15px;
+    margin:-15px;
+}
+.wx_popup_card .card-content-inner{
+    padding:5px 5px 0px 5px;
+    font-size: 10px;
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:8;
+}
