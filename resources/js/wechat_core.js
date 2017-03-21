@@ -1,7 +1,7 @@
 /**
  * Created by Petty on 2017/3/17.
  */
-(function(Framework7, $$, T7) {
+(function(Framework7, $$, T7, api, base64) {
 
     window.WeChat = new Framework7({
         template7Pages: true,
@@ -14,7 +14,9 @@
         modalButtonOk: '确认',
         modalButtonCancel: '取消',
         modalTitle: '提示',
-        pushState:true
+        pushState:true,
+        //关闭自动初始化
+        init : false
     });
 
     /*
@@ -41,6 +43,62 @@
         speed: 400,
         autoplay: 6000
     });
+
+    function getBook_List() {
+        var data = {
+            "pageNo": 1
+        };
+        api.getBookList(data, function(data) {
+            var data = JSON.parse(data);
+            if(data.result.length < 9) {
+                WeChat.detachInfiniteScroll($$('.infinite-scroll'));
+                $$('.infinite-scroll-preloader').hide();
+                loading = false;
+            }
+            $$(".page[data-page='index'] .page-content .row").html(
+                T7.templates.BookListTemplate(data.result)
+            )
+        })
+    }
+
+    WeChat.onPageInit('index', function(page) {
+        var _index = 2;
+        var loading = false;
+        getBook_List()
+        //上拉加载更多
+        var infContext = $$(page.container).find('.infinite-scroll');
+        infContext.on('infinite', function() {
+            if(loading) return;
+            loading = true;
+            var data = {
+                "pageNo": _index
+            };
+            api.getBookList(data, function(data) {
+                var data = JSON.parse(data);
+                var _temp = {};
+
+                if(data.result == 0) {
+                    // 加载完毕，则注销无限加载事件，以防不必要的加载
+                    WeChat.detachInfiniteScroll($$('.infinite-scroll'));
+                    // 删除加载提示符
+                    $$('.infinite-scroll-preloader').hide();
+                    loading = false;
+                    return;
+                }else{
+                    if(data.result.length%2==0){
+                        data.result.push(_temp);
+                    }
+                }
+                $$(".page[data-page='index'] .page-content .row").append(
+                    T7.templates.BookListTemplate(data.result)
+                )
+                _index = _index + 1;
+                loading = false;
+            })
+        })
+    })
+
+    WeChat.init();
 
     $$(document).on("click", ".page-content .card", function() {
         var card = $$(this);
@@ -88,4 +146,4 @@
         })
     });
 
-}(Framework7, Dom7, Template7))
+}(Framework7, Dom7, Template7, WeChat_Api, Base64))
