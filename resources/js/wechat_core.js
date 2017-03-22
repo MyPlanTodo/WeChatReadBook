@@ -10,7 +10,7 @@
         activeState: true,
         //navbar和toolbar自动隐藏
         hideNavbarOnPageScroll: false,
-        hideToolbarOnPageScroll: true,
+        hideToolbarOnPageScroll: false,
         modalButtonOk: '确认',
         modalButtonCancel: '取消',
         modalTitle: '提示',
@@ -44,7 +44,9 @@
         autoplay: 6000
     });
 
-    function getBook_List() {
+    function initBookTabPage(tabName){
+        var _index = 2;
+        var loading = false;
         var data = {
             "pageNo": 1
         };
@@ -55,18 +57,12 @@
                 $$('.infinite-scroll-preloader').hide();
                 loading = false;
             }
-            $$(".page[data-page='index'] .page-content .row").html(
+            $$(".page[data-page='index'] #"+tabName+" .row").html(
                 T7.templates.BookListTemplate(data.result)
             )
         })
-    }
-
-    WeChat.onPageInit('index', function(page) {
-        var _index = 2;
-        var loading = false;
-        getBook_List()
         //上拉加载更多
-        var infContext = $$(page.container).find('.infinite-scroll');
+        var infContext = $$("#"+tabName+"");
         infContext.on('infinite', function() {
             if(loading) return;
             loading = true;
@@ -79,9 +75,9 @@
 
                 if(data.result == 0) {
                     // 加载完毕，则注销无限加载事件，以防不必要的加载
-                    WeChat.detachInfiniteScroll($$('.infinite-scroll'));
+                    WeChat.detachInfiniteScroll($$("#"+tabName+" .infinite-scroll"));
                     // 删除加载提示符
-                    $$('.infinite-scroll-preloader').hide();
+                    $$("#"+tabName+" .infinite-scroll-preloader").hide();
                     loading = false;
                     return;
                 }else{
@@ -89,16 +85,55 @@
                         data.result.push(_temp);
                     }
                 }
-                $$(".page[data-page='index'] .page-content .row").append(
+                $$(".page[data-page='index'] #"+tabName+" .row").append(
                     T7.templates.BookListTemplate(data.result)
                 )
                 _index = _index + 1;
                 loading = false;
             })
         })
+    }
+
+    WeChat.onPageInit('index', function(page) {
+        initBookTabPage("tab1");
     })
 
     WeChat.init();
+
+    $$('.showTab_1').on('click', function () {
+        WeChat.showTab('#tab1');
+    });
+
+    //声明全局变量控制保证第一次加载后不再重复加载
+    showTab_2 = true;
+    $$('.showTab_2').on('click', function () {
+        WeChat.showTab('#tab2');
+        if(showTab_2){
+            initBookTabPage("tab2");
+            showTab_2 = false;
+        }
+    });
+
+    showTab_3 = true;
+    $$('.showTab_3').on('click', function () {
+        WeChat.showTab('#tab3');
+        if(showTab_3){
+            initBookTabPage("tab3");
+            showTab_3 = false;
+        }
+    });
+    $$('.showTab_4').on('click', function () {
+        WeChat.showTab('#tab4');
+        //initBookTabPage("tab4");
+    });
+    $$('.showTab_5').on('click', function () {
+        WeChat.showTab('#tab5');
+        //initBookTabPage("tab5");
+    });
+    $$('.showTab_6').on('click', function () {
+        WeChat.showTab('#tab6');
+        //initBookTabPage("tab6");
+    });
 
     /*
     * 处理ios浏览器点击无效bug

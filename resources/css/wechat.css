@@ -1,16 +1,16 @@
-.swiper-slide {
+.swiper-slide-header {
     background: #fff;
     box-sizing: border-box;
     border-bottom: 1px solid #ccc;
 }
 
-.swiper-slide span {
+.swiper-slide-header span {
     text-align: center;
     display: block;
     font-size: 12px;
 }
 
-.swiper-container {
+.swiper-header-container {
     height: 120px;
 }
 img {
@@ -100,4 +100,17 @@ img {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp:8;
+}
+.infinite-scroll-preloader-tab{
+    position: relative;
+    /* position: absolute; */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.infinite-scroll-preloader-tab .preloader-tab {
+    width:20px;
+    height:20px;
+    margin-left: -10px;
+    margin-top:5px;
 }

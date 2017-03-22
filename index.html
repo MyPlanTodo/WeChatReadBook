@@ -15,54 +15,159 @@
     <link rel="stylesheet" href="resources/css/wechat.css"/>
 </head>
 <body>
-<div class="statusbar-overlay"></div>
-<!-- Views -->
 <div class="views">
-    <!-- Your main view, should have "view-main" class -->
     <div class="view view-main">
-        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-        <div class="pages toolbar-through">
-            <!-- Page, "data-page" contains page name -->
-            <div data-page="index" class="page">
-                <!-- Scrollable page content -->
-                <div class="page-content infinite-scroll">
+        <div class="pages navbar-fixed">
+            <div data-page="index" class="page toolbar-through">
+                <!--Toolbar-->
+                <div class="toolbar tabbar">
+                    <div class="toolbar-inner">
+                        <!-- Toolbar links -->
+                        <a href="#tab1" class="tab-link active showTab_1">政治</a>
+                        <a href="#tab2" class="tab-link showTab_2">历史</a>
+                        <a href="#tab3" class="tab-link showTab_3">艺术</a>
+                        <a href="#tab4" class="tab-link showTab_4">财经</a>
+                        <a href="#tab5" class="tab-link showTab_5">少儿</a>
+                        <a href="#tab6" class="tab-link showTab_6">更多</a>
+                    </div>
+                </div>
 
-                    <div class="swiper-container swiper-1">
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><span><img src="resources/img/header.png"></span></div>
-                            <div class="swiper-slide"><span><img src="resources/img/header.png"></span></div>
-                            <div class="swiper-slide"><span><img src="resources/img/header.png"></span></div>
+                <div class="tabs-swipeable-wrap">
+                    <div class="tabs">
+                        <div id="tab1" class="page-content tab active infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
+
+                            <div class="swiper-container swiper-header-container">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-gutter">
+                            </div>
+                            <!-- Preloader -->
+                            <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
+                                <div class="preloader preloader-tab"></div>
+                            </div>
                         </div>
-                    </div>
+                        <div id="tab2" class="page-content tab infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
 
-                    <div class="row no-gutter">
-                        <!-- Each "cell" has col-[widht in percents] class -->
+                            <div class="swiper-container swiper-header-container">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <!--第一行-->
+                            <div class="row no-gutter">
+                            </div>
+                            <!-- Preloader -->
+                            <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
+                                <div class="preloader preloader-tab"></div>
+                            </div>
+                        </div>
+                        <div id="tab3" class="page-content tab infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
 
+                            <div class="swiper-container swiper-header-container">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                </div>
+                            </div>
 
-                    </div>
+                            <div class="row no-gutter">
+                            </div>
+                            <!-- Preloader -->
+                            <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
+                                <div class="preloader preloader-tab"></div>
+                            </div>
+                        </div>
+                        <div id="tab4" class="page-content tab infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
 
-                    <div class="infinite-scroll-preloader">
-                        <div class="preloader"></div>
+                            <div class="swiper-container swiper-header-container">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-gutter">
+                            </div>
+                            <!-- Preloader -->
+                            <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
+                                <div class="preloader preloader-tab"></div>
+                            </div>
+                        </div>
+                        <div id="tab5" class="page-content tab infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
+
+                            <div class="swiper-container swiper-header-container">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-gutter">
+                            </div>
+                            <!-- Preloader -->
+                            <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
+                                <div class="preloader preloader-tab"></div>
+                            </div>
+                        </div>
+                        <div id="tab6" class="page-content tab infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
+
+                            <div class="swiper-container swiper-header-container">
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-header"><span><img src="resources/img/header.png"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-gutter">
+                            </div>
+                            <!-- Preloader -->
+                            <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
+                                <div class="preloader preloader-tab"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Toolbar-->
-        <div class="toolbar tabbar">
-            <div class="toolbar-inner">
-                <!-- Toolbar links -->
-                <a href="#" class="link">政治</a>
-                <a href="#" class="link">历史</a>
-                <a href="#" class="link">艺术</a>
-                <a href="#" class="link">财经</a>
-                <a href="#" class="link">少儿</a>
-            </div>
-        </div>
     </div>
 </div>
+</div>
+
 </body>
 
 <script type="text/template7" id="BookListTemplate">
@@ -70,7 +175,8 @@
     {{#if title}}
     <div class="col-33">
         <div class="card card-header-pic">
-            <div style="background-image:url(resources/img/book/book_1.jpeg)" valign="bottom" class="card-header color-white no-border"></div>
+            <div style="background-image:url(resources/img/book/book_1.jpeg)" valign="bottom"
+                 class="card-header color-white no-border"></div>
             <div class="card-content">
                 <div class="card-content-inner card-title-text">{{title}}</div>
             </div>
