@@ -100,6 +100,12 @@
 
     WeChat.init();
 
+    /*
+    * 处理ios浏览器点击无效bug
+    * 针对safari
+    * 将点击事件添加到全局防止事件冒泡无效*/
+    $$(document).on("click", "body", function() {})
+
     $$(document).on("click", ".page-content .card", function() {
         var card = $$(this);
 

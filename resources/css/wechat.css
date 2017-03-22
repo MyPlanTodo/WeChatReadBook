@@ -21,6 +21,8 @@ img {
 .card {
     margin: 5px;
     font-size: 8px;
+    /* 处理ios浏览器点击无效bug */
+    cursor: pointer;
 }
 .card-title-text{
     margin: 0px;

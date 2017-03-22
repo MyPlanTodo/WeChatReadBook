@@ -1,6 +1,6 @@
 (function(Framework7, $$) {
 
-	var url = "http://192.168.3.123:9090/api_service/core/";
+	var url = "http://192.168.3.166:8080/api_service/core/";
 
 	var URL_getBookList = url + "getBookList";
 
