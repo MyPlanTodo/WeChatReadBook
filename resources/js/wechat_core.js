@@ -44,7 +44,7 @@
         autoplay: 6000
     });
 
-
+    window.localStorage.clear();
     common.DataInitial();
     WeChat.showIndicator();
     var data = {
