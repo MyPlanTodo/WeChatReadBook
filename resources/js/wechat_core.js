@@ -1,7 +1,7 @@
 /**
  * Created by Petty on 2017/3/17.
  */
-(function(Framework7, $$, T7, api, base64) {
+(function(Framework7, $$, T7, api, base64, common) {
 
     window.WeChat = new Framework7({
         template7Pages: true,
@@ -44,11 +44,33 @@
         autoplay: 6000
     });
 
+
+    common.DataInitial();
+
+    WeChat.showIndicator();
+    var data = {
+        "wx_id": "oj5Bot39Zd3Iau89Jd7wYckjRa-Q"
+    }
+    api.getUserinfo(data, function(data) {
+        if(data != "Don't Find User") {
+            var data = JSON.parse(data);
+            window.localStorage.setItem("USER_XM", data.result.xm);
+            window.localStorage.setItem("USER_SFZH", data.result.sfzhm);
+            window.localStorage.setItem("USER_PHONE", data.result.sjhm);
+            window.localStorage.setItem("USER_AREA", data.result.area1);
+        } else {
+            mainView.router.loadPage("html/page-login.html");
+        }
+        WeChat.hideIndicator();
+    })
+
+
     function initBookTabPage(tabName){
         var _index = 2;
         var loading = false;
         var data = {
-            "pageNo": 1
+            "pageNo": 1,
+            "tabName":tabName
         };
         api.getBookList(data, function(data) {
             var data = JSON.parse(data);
@@ -67,7 +89,8 @@
             if(loading) return;
             loading = true;
             var data = {
-                "pageNo": _index
+                "pageNo": _index,
+                "tabName":tabName
             };
             api.getBookList(data, function(data) {
                 var data = JSON.parse(data);
@@ -187,4 +210,4 @@
         })
     });
 
-}(Framework7, Dom7, Template7, WeChat_Api, Base64))
+}(Framework7, Dom7, Template7, WeChat_Api, Base64, Common))
