@@ -46,10 +46,9 @@
 
 
     common.DataInitial();
-
     WeChat.showIndicator();
     var data = {
-        "wx_id": "oj5Bot39Zd3Iau89Jd7wYckjRa-Q"
+        "wx_id": common.GetValue("uid")
     }
     api.getUserinfo(data, function(data) {
         if(data != "Don't Find User") {
@@ -59,7 +58,7 @@
             window.localStorage.setItem("USER_PHONE", data.result.sjhm);
             window.localStorage.setItem("USER_AREA", data.result.area1);
         } else {
-            mainView.router.loadPage("html/page-login.html");
+            WeChat.alert("您还未完成实名制信息，请通过微信菜单 工会服务->绑定个人信息完善实名制信息。");
         }
         WeChat.hideIndicator();
     })
@@ -118,44 +117,59 @@
     }
 
     WeChat.onPageInit('index', function(page) {
-        initBookTabPage("tab1");
+        initBookTabPage("tab_politics");
     })
 
     WeChat.init();
 
-    $$('.showTab_1').on('click', function () {
-        WeChat.showTab('#tab1');
+    $$('.showTab_politics').on('click', function () {
+        WeChat.showTab('#tab_politics');
     });
 
     //声明全局变量控制保证第一次加载后不再重复加载
-    showTab_2 = true;
-    $$('.showTab_2').on('click', function () {
-        WeChat.showTab('#tab2');
-        if(showTab_2){
-            initBookTabPage("tab2");
-            showTab_2 = false;
+    showTab_history = true;
+    $$('.showTab_history').on('click', function () {
+        WeChat.showTab('#tab_history');
+        if(showTab_history){
+            initBookTabPage("tab_history");
+            showTab_history = false;
         }
     });
 
-    showTab_3 = true;
-    $$('.showTab_3').on('click', function () {
-        WeChat.showTab('#tab3');
-        if(showTab_3){
-            initBookTabPage("tab3");
-            showTab_3 = false;
+    showTab_art = true;
+    $$('.showTab_art').on('click', function () {
+        WeChat.showTab('#tab_art');
+        if(showTab_art){
+            initBookTabPage("tab_art");
+            showTab_art = false;
         }
     });
-    $$('.showTab_4').on('click', function () {
-        WeChat.showTab('#tab4');
-        //initBookTabPage("tab4");
+
+    showTab_finance = true;
+    $$('.showTab_finance').on('click', function () {
+        WeChat.showTab('#tab_finance');
+        if(showTab_finance){
+            initBookTabPage("tab_finance");
+            showTab_finance = false;
+        }
     });
-    $$('.showTab_5').on('click', function () {
-        WeChat.showTab('#tab5');
-        //initBookTabPage("tab5");
+
+    showTab_juvenile = true;
+    $$('.showTab_juvenile').on('click', function () {
+        WeChat.showTab('#tab_juvenile');
+        if(showTab_juvenile){
+            initBookTabPage("tab_juvenile");
+            showTab_juvenile = false;
+        }
     });
-    $$('.showTab_6').on('click', function () {
-        WeChat.showTab('#tab6');
-        //initBookTabPage("tab6");
+
+    showTab_more = true;
+    $$('.showTab_more').on('click', function () {
+        WeChat.showTab('#tab_more');
+        if(showTab_more){
+            initBookTabPage("tab_more");
+            showTab_more = false;
+        }
     });
 
     /*
