@@ -206,7 +206,18 @@
                     bold: true,
                     onClick: function () {
                         var _html = "<div>已获票数："+(Number(data.likeNum)+Number(1))+"票</div>";
-                        card.find(".card-footer").html(_html)
+                        card.find(".card-footer").html(_html);
+                        var post_data = {
+                            "tsm5": card.find("input").val()
+                        };
+                        api.updateBookInfo(post_data,function(data_temp){
+                            var data_temp = JSON.parse(data_temp);
+                            if(data_temp.result){
+                                WeChat.alert("投票成功！");
+                            }else{
+                                WeChat.alert("当日投票次数达到上限！");
+                            }
+                        });
                     }
                 },
                 {

@@ -4,6 +4,7 @@
 
 	var URL_getBookList = url + "getBookList";
     var URL_getUserinfo = url + "getUserinfo";
+    var URL_updateBookinfo = url + "updateBookInfo";
 
 	var request = function(data, url, success) {
 		return $$.ajax({
@@ -28,6 +29,9 @@
 		},
         getUserinfo: function(data,success){
             return request(data,URL_getUserinfo, success)
+        },
+        updateBookInfo: function(data,success){
+            return request(data,URL_updateBookinfo, success)
         }
 	};
 	window.WeChat_Api = wechat_api
