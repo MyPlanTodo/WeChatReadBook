@@ -20,7 +20,7 @@ img {
 
 .card {
     margin: 5px;
-    font-size: 8px;
+    font-size: 12px;
     /* 处理ios浏览器点击无效bug */
     cursor: pointer;
 }
@@ -95,7 +95,7 @@ img {
 }
 .wx_popup_card .card-content-inner{
     padding:5px 5px 0px 5px;
-    font-size: 10px;
+    font-size: 12px;
     overflow:hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;

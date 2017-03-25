@@ -118,7 +118,7 @@
                     WeChat.detachInfiniteScroll($$("#" + tabName + " .infinite-scroll"));
                     // 删除加载提示符
                     $$("#" + tabName + " .infinite-scroll-preloader").hide();
-                    loading = false;
+                    loading = true;
                     return;
                 } else {
                     if (data.result.length % 2 == 0) {
