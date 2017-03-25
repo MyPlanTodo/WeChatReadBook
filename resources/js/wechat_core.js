@@ -82,6 +82,12 @@
             var data = JSON.parse(data);
             addLocalData(data);
             if(data.result.length < 9) {
+
+                var _temp = {};
+                if(data.result.length%2==0){
+                    data.result.push(_temp);
+                }
+
                 WeChat.detachInfiniteScroll($$('.infinite-scroll'));
                 $$('.infinite-scroll-preloader').hide();
                 loading = false;
