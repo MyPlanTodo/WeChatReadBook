@@ -222,7 +222,7 @@
                             };
                             api.updateBookInfo(post_data, function (data_temp) {
                                 var data_temp = JSON.parse(data_temp);
-                                if (data_temp.result==true) {
+                                if (data_temp.result=='true') {
                                     var _html = "" + (Number($$("#like_num").html()) + Number(1)) + "";
                                     card.find("#like_num").html(_html);
                                     WeChat.alert("投票成功！");
