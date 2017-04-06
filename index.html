@@ -23,12 +23,12 @@
                 <div class="toolbar tabbar">
                     <div class="toolbar-inner">
                         <!-- Toolbar links -->
-                        <a href="#tab_politics" class="tab-link active showTab_politics">政治</a>
-                        <a href="#tab_history" class="tab-link showTab_history">历史</a>
-                        <a href="#tab_art" class="tab-link showTab_art">艺术</a>
-                        <a href="#tab_finance" class="tab-link showTab_finance">财经</a>
+                        <a href="#tab_politics" class="tab-link active showTab_politics">小学组</a>
+                        <a href="#tab_history" class="tab-link showTab_history">中学组</a>
+                        <a href="#tab_art" class="tab-link showTab_art">成人组</a>
+                        <!--<a href="#tab_finance" class="tab-link showTab_finance">财经</a>
                         <a href="#tab_juvenile" class="tab-link showTab_juvenile">少儿</a>
-                        <a href="#tab_more" class="tab-link showTab_more">更多</a>
+                        <a href="#tab_more" class="tab-link showTab_more">更多</a>-->
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
                                 <div class="preloader preloader-tab"></div>
                             </div>
                         </div>
-                        <div id="tab_finance" class="page-content tab infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
+                        <!--<div id="tab_finance" class="page-content tab infinite-scroll" style="padding-top: 0px;padding-bottom: 50px">
 
                             <div class="swiper-container swiper-header-container">
                                 <div class="swiper-pagination"></div>
@@ -115,7 +115,7 @@
 
                             <div class="row no-gutter">
                             </div>
-                            <!-- Preloader -->
+                            &lt;!&ndash; Preloader &ndash;&gt;
                             <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
                                 <div class="preloader preloader-tab"></div>
                             </div>
@@ -136,7 +136,7 @@
 
                             <div class="row no-gutter">
                             </div>
-                            <!-- Preloader -->
+                            &lt;!&ndash; Preloader &ndash;&gt;
                             <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
                                 <div class="preloader preloader-tab"></div>
                             </div>
@@ -157,11 +157,11 @@
 
                             <div class="row no-gutter">
                             </div>
-                            <!-- Preloader -->
+                            &lt;!&ndash; Preloader &ndash;&gt;
                             <div class="infinite-scroll-preloader infinite-scroll-preloader-tab">
                                 <div class="preloader preloader-tab"></div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -186,7 +186,9 @@
                 <div>已获票数：<span id="like_num">{{likeNum}}</span>票</div>
             </div>
             <!--书籍ID-->
-            <input style="display: none" value="{{tsm5}}">
+            <input id="tsm5" style="display: none" value="{{tsm5}}">
+            <!--书籍ID-->
+            <input id="classify" style="display: none" value="{{classify}}">
         </div>
     </div>
     {{else}}

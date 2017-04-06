@@ -46,6 +46,11 @@
 
     window.localStorage.clear();
     common.DataInitial();
+
+    WeChat.alert("征集最喜爱的图书，时间截止至4月15日24:00。<br>"
+    +"请进入不同的组别对你喜爱的图书进行点赞，每天可以为不同组别的图书各点赞一次，活动期间各个组别中图书只能选择最多10本进行点赞。<br>"
++"获赞排名前十的图书将成为读书征文指定书目，凡参加点赞者可免费到县总工会职工书屋免费借阅。");
+
     WeChat.showIndicator();
     var wx_id = common.GetValue("uid");
     var data = {
@@ -217,17 +222,18 @@
                         var wx_id = window.localStorage.getItem("USER_OPENID");
                         if (wx_id != null) {
                             var post_data = {
-                                "tsm5": card.find("input").val(),
+                                "tsm5": card.find("#tsm5").val(),
+                                "classify": card.find("#classify").val(),
                                 "openid":wx_id
                             };
                             api.updateBookInfo(post_data, function (data_temp) {
                                 var data_temp = JSON.parse(data_temp);
-                                if (data_temp.result=='true') {
+                                if (data_temp.result=='Success') {
                                     var _html = "" + (Number($$("#like_num").html()) + Number(1)) + "";
                                     card.find("#like_num").html(_html);
                                     WeChat.alert("投票成功！");
                                 } else {
-                                    WeChat.alert("当日投票次数达到上限！");
+                                    WeChat.alert(data_temp.result);
                                 }
                             });
                         } else {
